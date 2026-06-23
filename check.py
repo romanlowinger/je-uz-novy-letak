@@ -53,6 +53,14 @@ def extract_signals(final_url: str, html: str) -> dict:
             pub_id = m.group(1)
             break
 
+    # Záložní signál pro stránky bez og tagů – hash nadpisů v hlavním obsahu
+    content_hash = ''
+    if not any([og['og:title'], og['og:url'], og['og:image'], pub_id]):
+        container = soup.find('main') or soup.find('body')
+        if container:
+            headings = [h.get_text(strip=True) for h in container.find_all(['h1', 'h2', 'h3', 'h4'])]
+            content_hash = hashlib.sha256('\n'.join(headings).encode()).hexdigest()[:16]
+
     return {
         'final_url': final_url,
         'title': title,
@@ -61,6 +69,7 @@ def extract_signals(final_url: str, html: str) -> dict:
         'og_url': og['og:url'],
         'og_image': og['og:image'],
         'pub_id': pub_id,
+        'content_hash': content_hash,
     }
 
 
@@ -72,6 +81,7 @@ def fingerprint(signals: dict) -> str:
         signals['og_url'],
         signals['og_image'],
         signals['pub_id'],
+        signals.get('content_hash', ''),
     ])
     return hashlib.sha256(key.encode()).hexdigest()[:16]
 
@@ -119,13 +129,13 @@ def notify_init(url: str, signals: dict):
 
 
 def notify_change(url: str, old: dict, new: dict):
-    old_title = old.get('og_title') or old.get('title') or '?'
-    new_title = new['og_title'] or new['title'] or '?'
+    old_label = old.get('og_title') or old.get('title') or '?'
+    new_label = new['og_title'] or new['title'] or '?'
     post_slack(
-        f"🆕 *Nový leták Makro!*\n"
+        f"🆕 *Změna na sledované stránce!*\n"
         f"*Sledovaná URL:* {url}\n"
-        f"*Starý leták:* {old_title}\n"
-        f"*Nový leták:* {new_title}\n"
+        f"*Dříve:* {old_label}\n"
+        f"*Nyní:* {new_label}\n"
         f"*Odkaz:* {new['final_url']}"
     )
 
