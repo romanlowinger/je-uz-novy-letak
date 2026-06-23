@@ -124,6 +124,12 @@ def load_urls() -> list[str]:
     return data.get('urls', [])
 
 
+def save_urls(urls: list[str]):
+    with open(URLS_FILE, 'w') as f:
+        json.dump({'urls': urls}, f, indent=2, ensure_ascii=False)
+        f.write('\n')
+
+
 def main():
     urls = load_urls()
     if not urls:
@@ -131,6 +137,7 @@ def main():
         sys.exit(0)
 
     state = load_state()
+    remaining_urls = list(urls)
 
     for url in urls:
         print(f'Kontroluji: {url}')
@@ -153,12 +160,15 @@ def main():
         elif fp != stored.get('fingerprint'):
             print(f'  [ZMĚNA] Detekován nový leták: {label}')
             notify_change(url, stored, signals)
+            remaining_urls.remove(url)
+            print(f'  URL odebrána ze sledování.')
             state[url] = {**signals, 'fingerprint': fp,
                           'saved_at': datetime.now(timezone.utc).isoformat()}
         else:
             print(f'  [OK] Beze změny: {label}')
 
     save_state(state)
+    save_urls(remaining_urls)
 
 
 if __name__ == '__main__':
