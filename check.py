@@ -6,11 +6,14 @@ import os
 import re
 import sys
 from datetime import datetime, timezone
+from urllib.parse import quote
 
 import requests
 from bs4 import BeautifulSoup
 
 SLACK_WEBHOOK = os.environ.get('SLACK_WEBHOOK', '')
+WORKER_URL = os.environ.get('WORKER_URL', '').rstrip('/')
+WORKER_TOKEN = os.environ.get('WORKER_TOKEN', '')
 STATE_FILE = 'state.json'
 URLS_FILE = 'urls.json'
 
@@ -84,12 +87,35 @@ def post_slack(text: str):
 
 def notify_init(url: str, signals: dict):
     label = signals['og_title'] or signals['title'] or url
-    post_slack(
+    text = (
         f"👀 *Začínám sledovat leták*\n"
         f"*URL:* {url}\n"
         f"*Aktuální leták:* {label}\n"
         f"*Odkaz:* {signals['final_url']}"
     )
+
+    if WORKER_URL and WORKER_TOKEN:
+        stop_url = f"{WORKER_URL}/remove?url={quote(url, safe='')}&token={WORKER_TOKEN}"
+        payload = {
+            'blocks': [
+                {'type': 'section', 'text': {'type': 'mrkdwn', 'text': text}},
+                {'type': 'actions', 'elements': [{
+                    'type': 'button',
+                    'text': {'type': 'plain_text', 'text': 'Vypnout sledování', 'emoji': True},
+                    'style': 'danger',
+                    'url': stop_url,
+                }]},
+            ]
+        }
+    else:
+        payload = {'text': text}
+
+    if not SLACK_WEBHOOK:
+        print('  [WARN] SLACK_WEBHOOK není nastaven')
+        return
+    resp = requests.post(SLACK_WEBHOOK, json=payload, timeout=10)
+    resp.raise_for_status()
+    print('  Slack notifikace odeslána')
 
 
 def notify_change(url: str, old: dict, new: dict):
