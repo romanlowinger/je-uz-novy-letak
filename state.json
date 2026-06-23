@@ -6,8 +6,8 @@
     "og_desc": "CASH &amp; CARRY 1/2 17. 6. – 23. 6. 2026 Kód zboží: 451068 ČERSTVÉ CHLAZENÉ DO 5,99 KG 10290 115 25* 99 OD 6,00 DO 11,99 KG 90 111 89* 96 12,00 KG A VÍCE • vakuově",
     "og_url": "https://letaky.makro.cz/top-maso-gyz3_847y4dp/page/1",
     "og_image": "https://view.publitas.com/screenshots?gId=11102&height=1902&pId=2882602&src=https%3A%2F%2Fview-private.publitas.com%2Fdynamic_pages%2F2882602%2F1%2Fat1600%3Finclude_image_content%3Dtrue&ts=1781682997&width=1345&s=29c165955af301510eb66ad0c0534ad967ebe910d0f617f08ec5f589fa8057e7",
-    "pub_id": "",
-    "fingerprint": "83dcc5b0c9eca966",
+    "content_hash": "e3b0c44298fc1c14",
+    "fingerprint": "f8ab3a50cd7b15ff",
     "saved_at": "2026-06-23T12:51:13.851179+00:00"
   },
   "https://scf.cz/": {
@@ -17,8 +17,8 @@
     "og_desc": "",
     "og_url": "",
     "og_image": "",
-    "pub_id": "",
-    "fingerprint": "642de1fccc56af2f",
+    "content_hash": "7ad6bd98d0c369ff",
+    "fingerprint": "1a006d90294e4ac1",
     "saved_at": "2026-06-23T13:51:19.398286+00:00"
   },
   "https://letaky.makro.cz/top-maso-gyz3_847y4dp/page/1?utm_campaign=cz_cc_sales_{mailingName}_{ga_calendarweek}&utm_medium=newsletter&utm_source=crm&utm_term=na%3Aproducts_maso&utm_content=all-{Track_ID_1}": {
@@ -28,8 +28,8 @@
     "og_desc": "CASH &amp; CARRY 1/2 17. 6. – 23. 6. 2026 Kód zboží: 451068 ČERSTVÉ CHLAZENÉ DO 5,99 KG 10290 115 25* 99 OD 6,00 DO 11,99 KG 90 111 89* 96 12,00 KG A VÍCE • vakuově",
     "og_url": "https://letaky.makro.cz/top-maso-gyz3_847y4dp/page/1",
     "og_image": "https://view.publitas.com/screenshots?gId=11102&height=1902&pId=2882602&src=https%3A%2F%2Fview-private.publitas.com%2Fdynamic_pages%2F2882602%2F1%2Fat1600%3Finclude_image_content%3Dtrue&ts=1781682997&width=1345&s=29c165955af301510eb66ad0c0534ad967ebe910d0f617f08ec5f589fa8057e7",
-    "pub_id": "",
-    "fingerprint": "165b0ca721d4b9e8",
+    "content_hash": "e3b0c44298fc1c14",
+    "fingerprint": "f8ab3a50cd7b15ff",
     "saved_at": "2026-06-23T13:52:09.926359+00:00"
   }
 }

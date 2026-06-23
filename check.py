@@ -42,24 +42,12 @@ def extract_signals(final_url: str, html: str) -> dict:
         tag = soup.find('meta', property=prop)
         og[prop] = tag.get('content', '') if tag else ''
 
-    # Publitas vkládá publication ID do JS dat na stránce
-    pub_id = ''
-    for pattern in [
-        r'"publicationId"\s*:\s*"([^"]+)"',
-        r'"publication_id"\s*:\s*"([^"]+)"',
-        r'letaky\.makro\.cz/[^"\']+/([a-z0-9]{5,12})',
-    ]:
-        if m := re.search(pattern, html):
-            pub_id = m.group(1)
-            break
-
-    # Záložní signál pro stránky bez og tagů – hash nadpisů v hlavním obsahu
-    content_hash = ''
-    if not any([og['og:title'], og['og:url'], og['og:image'], pub_id]):
-        container = soup.find('main') or soup.find('body')
-        if container:
-            headings = [h.get_text(strip=True) for h in container.find_all(['h1', 'h2', 'h3', 'h4'])]
-            content_hash = hashlib.sha256('\n'.join(headings).encode()).hexdigest()[:16]
+    # Hash viditelného textu – funguje pro libovolnou strukturu stránky
+    for noise in soup.find_all(['script', 'style', 'nav', 'header', 'footer']):
+        noise.decompose()
+    container = soup.find('main') or soup.find('article') or soup.find('body')
+    text = container.get_text(separator=' ', strip=True) if container else ''
+    content_hash = hashlib.sha256(text.encode()).hexdigest()[:16]
 
     return {
         'final_url': final_url,
@@ -68,21 +56,13 @@ def extract_signals(final_url: str, html: str) -> dict:
         'og_desc': og['og:description'],
         'og_url': og['og:url'],
         'og_image': og['og:image'],
-        'pub_id': pub_id,
         'content_hash': content_hash,
     }
 
 
 def fingerprint(signals: dict) -> str:
-    key = '|'.join([
-        signals['final_url'],
-        signals['title'],
-        signals['og_title'],
-        signals['og_url'],
-        signals['og_image'],
-        signals['pub_id'],
-        signals.get('content_hash', ''),
-    ])
+    # content_hash pokrývá statické stránky, og_image JS-renderované (Makro/Publitas)
+    key = signals.get('content_hash', '') + '|' + signals.get('og_image', '')
     return hashlib.sha256(key.encode()).hexdigest()[:16]
 
 
