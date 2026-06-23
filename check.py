@@ -73,25 +73,35 @@ def fingerprint(signals: dict) -> str:
     return hashlib.sha256(key.encode()).hexdigest()[:16]
 
 
-def notify_slack(url: str, old: dict, new: dict):
+def post_slack(text: str):
     if not SLACK_WEBHOOK:
         print('  [WARN] SLACK_WEBHOOK není nastaven')
         return
+    resp = requests.post(SLACK_WEBHOOK, json={'text': text}, timeout=10)
+    resp.raise_for_status()
+    print('  Slack notifikace odeslána')
 
+
+def notify_init(url: str, signals: dict):
+    label = signals['og_title'] or signals['title'] or url
+    post_slack(
+        f"👀 *Začínám sledovat leták*\n"
+        f"*URL:* {url}\n"
+        f"*Aktuální leták:* {label}\n"
+        f"*Odkaz:* {signals['final_url']}"
+    )
+
+
+def notify_change(url: str, old: dict, new: dict):
     old_title = old.get('og_title') or old.get('title') or '?'
     new_title = new['og_title'] or new['title'] or '?'
-
-    text = (
+    post_slack(
         f"🆕 *Nový leták Makro!*\n"
         f"*Sledovaná URL:* {url}\n"
         f"*Starý leták:* {old_title}\n"
         f"*Nový leták:* {new_title}\n"
         f"*Odkaz:* {new['final_url']}"
     )
-
-    resp = requests.post(SLACK_WEBHOOK, json={'text': text}, timeout=10)
-    resp.raise_for_status()
-    print('  Slack notifikace odeslána')
 
 
 def load_state() -> dict:
@@ -137,11 +147,12 @@ def main():
 
         if stored is None:
             print(f'  [INIT] Ukládám výchozí stav: {label}')
+            notify_init(url, signals)
             state[url] = {**signals, 'fingerprint': fp,
                           'saved_at': datetime.now(timezone.utc).isoformat()}
         elif fp != stored.get('fingerprint'):
             print(f'  [ZMĚNA] Detekován nový leták: {label}')
-            notify_slack(url, stored, signals)
+            notify_change(url, stored, signals)
             state[url] = {**signals, 'fingerprint': fp,
                           'saved_at': datetime.now(timezone.utc).isoformat()}
         else:
