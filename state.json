@@ -42,5 +42,16 @@
     "content_hash": "a96d33e4afd90423",
     "fingerprint": "c44977aea65ccc0a",
     "saved_at": "2026-06-24T08:16:41.421689+00:00"
+  },
+  "https://mc.s50.exacttarget.com/cloud/#app/Content%20Builder/": {
+    "final_url": "https://mc.s50.exacttarget.com/cloud/login.html#app/Content%20Builder/",
+    "title": "Salesforce Marketing Cloud",
+    "og_title": "",
+    "og_desc": "",
+    "og_url": "",
+    "og_image": "",
+    "content_hash": "e3b0c44298fc1c14",
+    "fingerprint": "fb52cb8d1851463f",
+    "saved_at": "2026-06-24T08:17:13.152984+00:00"
   }
 }
