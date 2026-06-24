@@ -53,5 +53,16 @@
     "content_hash": "e3b0c44298fc1c14",
     "fingerprint": "fb52cb8d1851463f",
     "saved_at": "2026-06-24T08:17:13.152984+00:00"
+  },
+  "https://www.ceskenoviny.cz/": {
+    "final_url": "https://www.ceskenoviny.cz/",
+    "title": "České noviny | ČeskéNoviny.cz",
+    "og_title": "České noviny | ČeskéNoviny.cz",
+    "og_desc": "České noviny",
+    "og_url": "https://www.ceskenoviny.cz/",
+    "og_image": "https://i4.cn.cz/cn2015/CTK_ceske-noviny.jpg",
+    "content_hash": "3034f1cd23504b1e",
+    "fingerprint": "cb8a1c2ffb1cc9d9",
+    "saved_at": "2026-06-24T12:34:20.551893+00:00"
   }
 }
