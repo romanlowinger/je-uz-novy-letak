@@ -66,40 +66,8 @@ def fingerprint(signals: dict) -> str:
     return hashlib.sha256(key.encode()).hexdigest()[:16]
 
 
-def post_slack(text: str):
-    if not SLACK_WEBHOOK:
-        print('  [WARN] SLACK_WEBHOOK není nastaven')
-        return
-    resp = requests.post(SLACK_WEBHOOK, json={'text': text}, timeout=10)
-    resp.raise_for_status()
-    print('  Slack notifikace odeslána')
 
-
-def notify_init(url: str, signals: dict):
-    label = signals['og_title'] or signals['title'] or url
-    text = (
-        f"👀 *Začínám sledovat leták*\n"
-        f"*URL:* {url}\n"
-        f"*Aktuální leták:* {label}\n"
-        f"*Odkaz:* {signals['final_url']}"
-    )
-
-    if WORKER_URL and WORKER_TOKEN:
-        stop_url = f"{WORKER_URL}/remove?url={quote(url, safe='')}&token={WORKER_TOKEN}"
-        payload = {
-            'blocks': [
-                {'type': 'section', 'text': {'type': 'mrkdwn', 'text': text}},
-                {'type': 'actions', 'elements': [{
-                    'type': 'button',
-                    'text': {'type': 'plain_text', 'text': 'Vypnout sledování', 'emoji': True},
-                    'style': 'danger',
-                    'url': stop_url,
-                }]},
-            ]
-        }
-    else:
-        payload = {'text': text}
-
+def _slack_send(payload: dict):
     if not SLACK_WEBHOOK:
         print('  [WARN] SLACK_WEBHOOK není nastaven')
         return
@@ -108,16 +76,45 @@ def notify_init(url: str, signals: dict):
     print('  Slack notifikace odeslána')
 
 
+def notify_init(url: str, signals: dict):
+    label = signals['og_title'] or signals['title'] or url
+    final = signals['final_url']
+    text = f"👀 Hlídám *<{final}|{label}>*\nDám vědět, jakmile se něco změní!"
+
+    buttons = []
+    if WORKER_URL and WORKER_TOKEN:
+        stop_url = f"{WORKER_URL}/remove?url={quote(url, safe='')}&token={WORKER_TOKEN}"
+        buttons.append({
+            'type': 'button',
+            'text': {'type': 'plain_text', 'text': '🛑 Vypnout sledování', 'emoji': True},
+            'style': 'danger',
+            'url': stop_url,
+        })
+
+    payload = {'blocks': [{'type': 'section', 'text': {'type': 'mrkdwn', 'text': text}}]}
+    if buttons:
+        payload['blocks'].append({'type': 'actions', 'elements': buttons})
+
+    _slack_send(payload)
+
+
 def notify_change(url: str, old: dict, new: dict):
-    old_label = old.get('og_title') or old.get('title') or '?'
-    new_label = new['og_title'] or new['title'] or '?'
-    post_slack(
-        f"🆕 *Změna na sledované stránce!*\n"
-        f"*Sledovaná URL:* {url}\n"
-        f"*Dříve:* {old_label}\n"
-        f"*Nyní:* {new_label}\n"
-        f"*Odkaz:* {new['final_url']}"
-    )
+    label = new['og_title'] or new['title'] or url
+    final = new['final_url']
+    old_label = old.get('og_title') or old.get('title') or ''
+    detail = f"\n_Předtím: {old_label}_" if old_label and old_label != label else ''
+
+    payload = {
+        'blocks': [
+            {'type': 'section', 'text': {'type': 'mrkdwn', 'text': f"🔔 Změna! *<{final}|{label}>*{detail}"}},
+            {'type': 'actions', 'elements': [{
+                'type': 'button',
+                'text': {'type': 'plain_text', 'text': '🔗 Otevřít stránku', 'emoji': True},
+                'url': final,
+            }]},
+        ]
+    }
+    _slack_send(payload)
 
 
 def load_state() -> dict:
