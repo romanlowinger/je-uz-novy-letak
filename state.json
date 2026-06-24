@@ -31,5 +31,16 @@
     "content_hash": "e3b0c44298fc1c14",
     "fingerprint": "f8ab3a50cd7b15ff",
     "saved_at": "2026-06-23T13:52:09.926359+00:00"
+  },
+  "https://www.seznam.cz/": {
+    "final_url": "https://www.seznam.cz/",
+    "title": "Seznam – najdu tam, co neznám",
+    "og_title": "Seznam – najdu tam, co neznám",
+    "og_desc": "Nejnavštěvovanější český internetový portál nabízející vyhledávač, e-mail, aktuální zprávy, předpověď počasí a odkazy, které se mohou hodit.",
+    "og_url": "https://www.seznam.cz/",
+    "og_image": "/media/img/logo-share-square_v2.png",
+    "content_hash": "f424dc2ec332eb16",
+    "fingerprint": "188d6a375258fd54",
+    "saved_at": "2026-06-24T07:35:53.954481+00:00"
   }
 }
