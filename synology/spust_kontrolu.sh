@@ -2,7 +2,7 @@
 # Spuštění GitHub Actions workflow pro je-uz-novy-letak
 # Umístění na NAS: /volume1/docker/je-uz-novy-letak/spust_kontrolu.sh
 
-PAT="DOPLŇ_PAT"
+PAT=$(cat /volume1/docker/je-uz-novy-letak/github_pat.txt)
 LOG_FILE="/volume1/docker/je-uz-novy-letak/spusteni.log"
 REPO="romanlowinger/je-uz-novy-letak"
 WORKFLOW="check.yml"
