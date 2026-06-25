@@ -43,9 +43,9 @@ def extract_signals(final_url: str, html: str) -> dict:
         og[prop] = tag.get('content', '') if tag else ''
 
     # Hash viditelného textu – funguje pro libovolnou strukturu stránky
-    for noise in soup.find_all(['script', 'style', 'nav', 'header', 'footer']):
+    for noise in soup.find_all(['script', 'style', 'footer']):
         noise.decompose()
-    container = soup.find('main') or soup.find('article') or soup.find('body')
+    container = soup.find('body')
     text = container.get_text(separator=' ', strip=True) if container else ''
     content_hash = hashlib.sha256(text.encode()).hexdigest()[:16]
 
