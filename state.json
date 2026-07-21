@@ -119,5 +119,16 @@
     "content_hash": "e3b0c44298fc1c14",
     "fingerprint": "645cce0ee72af18f",
     "saved_at": "2026-07-08T13:00:14.683585+00:00"
+  },
+  "https://lowinger.cz/": {
+    "final_url": "https://lowinger.cz/",
+    "title": "Löwinger",
+    "og_title": "",
+    "og_desc": "",
+    "og_url": "",
+    "og_image": "",
+    "content_hash": "a962f127b9b5c982",
+    "fingerprint": "c9a1f2c5c8716b07",
+    "saved_at": "2026-07-21T07:29:30.293740+00:00"
   }
 }
