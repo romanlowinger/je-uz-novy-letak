@@ -163,5 +163,16 @@
     "content_hash": "e3b0c44298fc1c14",
     "fingerprint": "f52a709bcb4fd52b",
     "saved_at": "2026-07-21T10:50:21.873984+00:00"
+  },
+  "https://www.fotoskoda.cz/blog/": {
+    "final_url": "https://www.fotoskoda.cz/blog/",
+    "title": "Blog | FotoŠkoda",
+    "og_title": "Blog | FotoŠkoda",
+    "og_desc": "Specializovaná prodejna na foto-videotechniku a fotografické služby. Nabízíme digitální fotoaparáty, videokamery, objektivy, stativy a příslušenství. Zhotovení fotografií, DTP, ateliér a minigalerie.",
+    "og_url": "https://www.fotoskoda.cz/blog/",
+    "og_image": "https://www.fotoskoda.cz/common/facelift/images/cfs-logo-1200.jpg",
+    "content_hash": "936c90ea5fc9a999",
+    "fingerprint": "adbb0fd53b30e414",
+    "saved_at": "2026-07-24T08:10:15.938433+00:00"
   }
 }
