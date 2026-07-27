@@ -185,5 +185,16 @@
     "content_hash": "19b5d3190260581d",
     "fingerprint": "0abab6c36ea5f2e4",
     "saved_at": "2026-07-24T17:10:23.034220+00:00"
+  },
+  "https://aholddelhaize.sharepoint.com/:x:/r/sites/AD-CZ-Digital/_layouts/15/Doc.aspx?sourcedoc=%7BD4B8AF93-FAFD-4098-A036-0A23907755E8%7D&file=w31_monetizace_bannery_2026.xlsx&action=default&mobileredirect=true": {
+    "final_url": "https://login.microsoftonline.com:443/a6b169f1-592b-4329-8f33-8db8903003c7/oauth2/authorize?client_id=00000003-0000-0ff1-ce00-000000000000&response_mode=form_post&ear_jwe_crypto=eyJhbGciOiJFQ0RILUVTIiwiZW5jIjoiQTI1NkdDTSIsImFwdiI6IkFBQUFDVVZoY2tOc2FXVnVkR2dBQUFCRlEwc3pNQUFBQUdCM1Y4cTV0MW5oZkU2RUlOYjQ4MjlNRXhBdEx4VlZ5YVVJSVFjbWUxTWVXbC9HZm9uQUJwUmRKdW1sTHgvK2gzWjF0T2VXdUs0Mktqc1NLL0hVVFVaSXlJU0N0WmxVZ0hXeHJJL09MK0dFc1FUTFB4aVV3UWRHYUdIcElrNmoyUUFBQUJpemt1RVlVekFOMERBejBnVDE4aGxkVERnL2NxTURBZmc9In0%3D&ear_jwk=eyJhbGciOiJFQ0RILUVTIiwiY3J2IjoiUC0zODQiLCJ4IjoiQUFBQU1HQjNWOHE1dDFuaGZFNkVJTmI0ODI5TUV4QXRMeFZWeWFVSUlRY21lMU1lV2wvR2ZvbkFCcFJkSnVtbEx4Lytodz09IiwieSI6IkFBQUFNSFoxdE9lV3VLNDJLanNTSy9IVVRVWkl5SVNDdFpsVWdIV3hySS9PTCtHRXNRVExQeGlVd1FkR2FHSHBJazZqMlE9PSIsImt0eSI6IkVDIn0%3D&spa_client_id=08e18876-6177-487e-b8b5-cf950c1e598c&client_info=1&response_type=code%20id_token%20spa_rt&resource=00000003-0000-0ff1-ce00-000000000000&scope=openid&nonce=BCD7E5020651E1FC077B105A01A1E652E75EE0343E1049C2-A813E3677E1396F50A15FFC1FA4DFB0578001C59B00221566F2F6E7ED53FEC3F&redirect_uri=https%3A%2F%2Faholddelhaize.sharepoint.com%2F_forms%2Fdefault.aspx&state=OD0wJjMyPUFBTWh0QUFBQUJRNzI4MlFkU1lLamZBU0pYSiUyRmI4aVo4VzV2aHZ0VlowdkNhTU5Ianl0R2M0SmJmTktyR01MSW9ySGR6YnpsSTNpaGNhMWZzWXFhJTJCYW5kT3JjcEthejUzMGZOeHglMkJHNzdhWmRmaTlZYkNWSDNXTzI3ejEwQWZ0Y1hyVjlrWVd5VG5Sb1BSSEREVUVKVnhjcWZtTzJTVXNpc2glMkJPVWExaVFKdUlBOURjT0k2blA4enRCTFIwemYwek1UbjMybHZ2N1JZYUpxZGJPOVl4U1puZHAzTnRZU0hyWkxEZmd3WXgyTHR4cFdsJTJGUW1xekdINnAxWHAzMzBzNkFPQjhDdmFpODU0ekhZa0U1OTY5OUV2NDZ2czIxYjA2MmpVNzJxNEl0Rk1HSmFXd3lOSVJXckJWRnluSFNPN1V3Yno5aWRQdVdWc244YXZ6Z210alF3OVloOGl3eXNpTndwcjY1dklha2lPTWh0UUhvUWxYZFA3Y2czWDNvdHc&claims=%7B%22id_token%22%3A%7B%22xms_cc%22%3A%7B%22values%22%3A%5B%22CP1%22%5D%7D%7D%7D&wsucxt=1&cobrandid=11bd8083-87e0-41b5-bb78-0bc43c8a8e8a&client-request-id=10452ba2-0009-d000-47af-4f1b78554bb3",
+    "title": "Redirecting",
+    "og_title": "",
+    "og_desc": "",
+    "og_url": "",
+    "og_image": "",
+    "content_hash": "e3b0c44298fc1c14",
+    "fingerprint": "fb52cb8d1851463f",
+    "saved_at": "2026-07-27T05:55:07.164660+00:00"
   }
 }
