@@ -207,5 +207,16 @@
     "content_hash": "e3b0c44298fc1c14",
     "fingerprint": "dbeb86587a28f0dd",
     "saved_at": "2026-08-04T12:40:19.748417+00:00"
+  },
+  "https://ppsop.cz/blog/": {
+    "final_url": "https://ppsop.cz/blog/",
+    "title": "BLOG Online Školy Perfektní Fotografie",
+    "og_title": "BLOG Online Školy Perfektní Fotografie",
+    "og_desc": "Obklopte se kreativními lidmi",
+    "og_url": "https://ppsop.cz/blog/",
+    "og_image": "https://ppsop.cz/wp-content/uploads/2026/03/Blog_Blue-fisher.jpg",
+    "content_hash": "fa8cda0301dc77b5",
+    "fingerprint": "9e3d92fed2bbc5a4",
+    "saved_at": "2026-08-13T12:29:56.934883+00:00"
   }
 }
