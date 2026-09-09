@@ -240,5 +240,16 @@
     "content_hash": "e3b0c44298fc1c14",
     "fingerprint": "66d530cb15de400d",
     "saved_at": "2026-08-20T07:45:03.042468+00:00"
+  },
+  "https://www.fotofestplzen.cz/": {
+    "final_url": "https://www.fotofestplzen.cz/",
+    "title": "Foto Fest Plzeň - Největší fotografický festival na západě Čech",
+    "og_title": "Foto Fest Plzeň",
+    "og_desc": "Největší fotografický festival na západě Čech. Jednodenní událost plná přednášek, workshopů a novinek od předních značek. Potkejte inspirativní tvůrce a celou komunitu. Vstupné zdarma!",
+    "og_url": "",
+    "og_image": "https://www.fotofestplzen.cz/og-default.jpg",
+    "content_hash": "0d89dd8eb49fa3da",
+    "fingerprint": "d39772b3c0abe96a",
+    "saved_at": "2026-09-09T16:23:43.926741+00:00"
   }
 }
