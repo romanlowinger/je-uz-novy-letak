@@ -298,13 +298,13 @@
   },
   "https://letaky.metro.sk/lacny-kosik/page/1": {
     "final_url": "https://letaky.metro.sk/lacny-kosik/page/1",
-    "title": "METRO SK - Čerstvý výber - Strana 1",
-    "og_title": "METRO SK - Čerstvý výber - Strana 1",
-    "og_desc": "ČERSTVÝ VÝBER Platí pre registrovaných zákazníkov pri osobnom odbere od 9. 11. do 15. 11. 2026 alebo do vypredania zásob. CHLADENÉ 14,99 17,84* 2,59 Losos",
-    "og_url": "https://letaky.metro.sk/lacny-kosik/page/1",
-    "og_image": "https://view.publitas.com/screenshots?gId=11364&height=1904&pId=3520025&src=https%3A%2F%2Fview-private.publitas.com%2Fdynamic_pages%2F3520025%2F1%2Fat1600%3Finclude_image_content%3Dtrue&ts=1794355647&width=1345&s=820a78611c39351f960ce150fcf4c7d555836f1b7e3153c78bbce3499ad964ab",
-    "content_hash": "e3b0c44298fc1c14",
-    "fingerprint": "15194fcc191cd33d",
-    "saved_at": "2026-11-15T06:06:19.490686+00:00"
+    "title": "This Publication is offline",
+    "og_title": "",
+    "og_desc": "",
+    "og_url": "",
+    "og_image": "",
+    "content_hash": "bf074bfe22b85966",
+    "fingerprint": "d9baec0f9c6fd41e",
+    "saved_at": "2026-11-15T23:00:16.391942+00:00"
   }
 }
